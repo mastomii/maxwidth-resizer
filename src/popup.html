@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MaxWidth Resizer</title>
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="who">
+      <span class="name">MaxWidth Resizer</span>
+      <span class="host" id="host">—</span>
+    </div>
+    <label class="switch" title="Limit this site">
+      <input type="checkbox" id="enabled" aria-label="Limit this site" />
+      <span class="track" aria-hidden="true"><span class="knob"></span></span>
+    </label>
+  </header>
+
+  <div class="rule"></div>
+
+  <section class="main">
+    <div class="readout">
+      <label class="eyebrow" for="value">Max width</label>
+      <div class="figure">
+        <input type="number" id="value" min="240" max="4000" step="10" value="1200"
+               inputmode="numeric" aria-label="Max width in pixels" />
+        <span class="unit">px</span>
+      </div>
+    </div>
+
+    <input type="range" id="range" min="480" max="2560" step="10" value="1200" aria-label="Max width slider" />
+
+    <div class="ticks" id="ticks">
+      <button type="button" data-w="720">720</button>
+      <button type="button" data-w="960">960</button>
+      <button type="button" data-w="1200">1200</button>
+      <button type="button" data-w="1440">1440</button>
+      <button type="button" data-w="1920">1920</button>
+    </div>
+
+    <div class="actions">
+      <button id="pick" class="btn">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M2.3 2.3h3M2.3 2.3v3M13.7 2.3h-3M13.7 2.3v3M2.3 13.7h3M2.3 13.7v-3M13.7 13.7h-3M13.7 13.7v-3" />
+          <path d="M8 5.7 10.9 8l-2 .7 1 1.9-.9.5-1-1.9-1.5 1.1z" />
+        </svg>
+        Choose element
+      </button>
+      <button id="reset" class="btn square" title="Reset this site">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M12.6 8a4.6 4.6 0 1 1-1.5-3.4" />
+          <path d="M12.9 2.7v3h-3" />
+        </svg>
+        <span class="sr">Reset this site</span>
+      </button>
+    </div>
+
+    <p class="status" id="status">
+      <span class="dot" id="dot" aria-hidden="true"></span>
+      <span id="statusText">—</span>
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <footer class="foot">
+    <button id="more" class="link" aria-expanded="false">Advanced</button>
+    <button id="options" class="link">All sites</button>
+  </footer>
+
+  <section class="more" id="morePanel" hidden>
+    <div class="kv"><span>Detected by</span><span class="v" id="kReason">—</span></div>
+    <div class="kv"><span>Nested clamps</span><span class="v" id="kNested">—</span></div>
+    <div class="kv"><span>Selector</span><span class="v mono" id="kSelector">—</span></div>
+    <div class="opts">
+      <label class="check" for="scope">Limit
+        <select id="scope">
+          <option value="column">the content column</option>
+          <option value="page">the whole page</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="center" /> Center the column</label>
+      <label class="check"><input type="checkbox" id="hardMode" /> Hard mode <span class="hint">clamp nested wide boxes</span></label>
+      <label class="check"><input type="checkbox" id="unstick" /> Unstick full-width bars</label>
+      <label class="check" for="appearance">Appearance
+        <select id="appearance">
+          <option value="system">system</option>
+          <option value="light">light</option>
+          <option value="dark">dark</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script src="storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

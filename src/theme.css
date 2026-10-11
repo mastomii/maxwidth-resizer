@@ -1,0 +1,115 @@
+/* MaxWidth — shared design tokens for every extension surface (popup, options,
+   welcome). Light is the default; dark follows the OS unless the page opts in
+   with data-theme. Both palettes define the same names, so a component never
+   needs to know which mode is live. */
+
+/* The page stays hidden for the few milliseconds it takes theme-init.js to read
+   the stored appearance, so switching to dark never flashes a light page. The
+   attribute is always set (theme-init.js has a timeout), so this cannot wedge
+   the UI shut. */
+html:not([data-theme-ready]) { visibility: hidden; }
+
+:root {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --surface: #f7f7f8;
+  --sunken: #f4f4f5;
+  --raised: #ffffff;
+
+  --line: #e4e4e7;
+  --line-strong: #d4d4d8;
+  --hover: #f4f4f5;
+  --active: #ebebee;
+
+  --text: #18181b;
+  --muted: #6b6b74;
+  --dim: #8e8e97;
+
+  --accent: #18181b;
+  --accent-ink: #ffffff;
+  --fill: #18181b;
+
+  --danger: #b42318;
+  --danger-line: #f0c8c2;
+  --danger-bg: #fef4f2;
+
+  --ok: #15803d;
+  --warn: #b45309;
+
+  --focus: #2563eb;
+
+  --shadow-pop: 0 12px 32px rgba(16, 16, 20, .14), 0 2px 8px rgba(16, 16, 20, .08);
+  --shadow-thumb: 0 1px 2px rgba(16, 16, 20, .28);
+
+  --track: #d9d9de;
+  --knob: #ffffff;
+  --knob-line: #d4d4d8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bg: #131316;
+    --surface: #1a1a1e;
+    --sunken: #101013;
+    --raised: #1d1d22;
+
+    --line: #26262b;
+    --line-strong: #35353c;
+    --hover: #1e1e23;
+    --active: #24242a;
+
+    --text: #f4f4f5;
+    --muted: #8b8b94;
+    --dim: #6a6a73;
+
+    --accent: #ececec;
+    --accent-ink: #131316;
+    --fill: #ececec;
+
+    --danger: #e5a3a3;
+    --danger-line: #452c2c;
+    --danger-bg: #1e1515;
+
+    --ok: #a9c9a4;
+    --warn: #d9b48b;
+
+    --focus: #6b8afd;
+
+    --shadow-pop: 0 14px 38px rgba(0, 0, 0, .55), 0 2px 10px rgba(0, 0, 0, .4);
+    --shadow-thumb: 0 1px 3px rgba(0, 0, 0, .55);
+
+    --track: #33333a;
+    --knob: #f0f0f0;
+    --knob-line: #3a3a42;
+  }
+}
+
+/* An explicit choice always beats the OS preference. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff; --surface: #f7f7f8; --sunken: #f4f4f5; --raised: #ffffff;
+  --line: #e4e4e7; --line-strong: #d4d4d8; --hover: #f4f4f5; --active: #ebebee;
+  --text: #18181b; --muted: #6b6b74; --dim: #8e8e97;
+  --accent: #18181b; --accent-ink: #ffffff; --fill: #18181b;
+  --danger: #b42318; --danger-line: #f0c8c2; --danger-bg: #fef4f2;
+  --ok: #15803d; --warn: #b45309; --focus: #2563eb;
+  --shadow-pop: 0 12px 32px rgba(16,16,20,.14), 0 2px 8px rgba(16,16,20,.08);
+  --shadow-thumb: 0 1px 2px rgba(16,16,20,.28);
+  --track: #d9d9de; --knob: #ffffff; --knob-line: #d4d4d8;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #131316; --surface: #1a1a1e; --sunken: #101013; --raised: #1d1d22;
+  --line: #26262b; --line-strong: #35353c; --hover: #1e1e23; --active: #24242a;
+  --text: #f4f4f5; --muted: #8b8b94; --dim: #6a6a73;
+  --accent: #ececec; --accent-ink: #131316; --fill: #ececec;
+  --danger: #e5a3a3; --danger-line: #452c2c; --danger-bg: #1e1515;
+  --ok: #a9c9a4; --warn: #d9b48b; --focus: #6b8afd;
+  --shadow-pop: 0 14px 38px rgba(0,0,0,.55), 0 2px 10px rgba(0,0,0,.4);
+  --shadow-thumb: 0 1px 3px rgba(0,0,0,.55);
+  --track: #33333a; --knob: #f0f0f0; --knob-line: #3a3a42;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MaxWidth Resizer</title>
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <span class="mark">MaxWidth Resizer</span>
+      <p class="lede">Installed. Pages and apps that stretch edge to edge on a wide screen can now get a readable column — one site at a time.</p>
+    </header>
+
+    <section>
+      <h2>How it works</h2>
+      <ul class="steps">
+        <li><strong>Nothing happens until you turn it on.</strong> The extension starts off everywhere, so it cannot change a page you did not ask it to. Open the popup on a site and flip the switch — that choice is remembered for that site.</li>
+        <li>Once on, it finds the main content box by itself: it weighs how much real text each element holds, discounts link-heavy chrome like nav and sidebars, and walks up to the wrapper that actually owns the column.</li>
+        <li>That box is capped at your max width and centered. Everything else keeps its own styling.</li>
+        <li>Wrong guess, or an unusual app? Press <strong>Pick element</strong> and click the box you want. The choice is remembered for that site.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Worth knowing</h2>
+      <ul class="steps">
+        <li>Nothing happens when your window is already narrower than the limit.</li>
+        <li>Nothing happens on pages that already limit themselves — the extension never widens anything.</li>
+        <li><strong>Hard mode</strong> also clamps wide boxes nested inside the column, and lets them scroll if their content still will not shrink.</li>
+        <li><strong>Unstick</strong> turns full-width sticky bars inside the column back into normal flow.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Keyboard</h2>
+      <table class="keys">
+        <tbody>
+          <tr><td><kbd>Alt</kbd><kbd>Shift</kbd><kbd>W</kbd></td><td>Toggle on this site</td></tr>
+          <tr><td><kbd>Alt</kbd><kbd>Shift</kbd><kbd>P</kbd></td><td>Pick the element to limit</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Settings</h2>
+      <p class="hint">Defaults, per-site overrides, and JSON import/export.</p>
+      <button id="open" class="btn">Open settings</button>
+    </section>
+  </main>
+  <script src="welcome.js"></script>
+</body>
+</html>

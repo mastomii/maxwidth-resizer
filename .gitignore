@@ -1,0 +1,13 @@
+# build output
+dist/
+
+# browser profiles created by the test harness
+.ext-test/
+.ext-profile/
+.ext-profile-src/
+.ext-*/
+.prof-*/
+
+# OS noise
+.DS_Store
+Thumbs.db
